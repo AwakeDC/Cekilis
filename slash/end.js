@@ -2,12 +2,12 @@
 
 module.exports = {
     name: "end",
-    description: '🎉 End an already running giveaway',
+    description: '🎉 Halihazırda devam eden bir çekilişi sonlandırın',
 
     options: [
         {
             name: 'giveaway',
-            description: 'The giveaway to end (message ID or giveaway prize)',
+            description: 'Çekiliş sona erecek (message ID or giveaway prize)',
             type: 'STRING',
             required: true
         }
@@ -18,7 +18,7 @@ module.exports = {
         // If the member doesn't have enough permissions
         if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaways")) {
             return interaction.reply({
-                content: ':x: You need to have the manage messages permissions to end giveaways.',
+                content: ':x: Gerekli izinlere sahip değilsiniz.',
                 ephemeral: true
             });
         }
@@ -35,14 +35,14 @@ module.exports = {
         // If no giveaway was found with the corresponding input
         if (!giveaway) {
             return interaction.reply({
-                content: 'Unable to find a giveaway for `' + query + '`.',
+                content: 'Bulunamadı `' + query + '`.',
                 ephemeral: true
             });
         }
 
         if (giveaway.ended) {
             return interaction.reply({
-                content: 'This giveaway has already ended!',
+                content: 'Zaten sona ermiş!',
                 ephemeral: true
             });
         }
