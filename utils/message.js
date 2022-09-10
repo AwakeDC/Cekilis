@@ -2,16 +2,16 @@ const config = require('../config.json');
 module.exports = {
   giveaway:
     (config.everyoneMention ? "@everyone\n\n" : "") +
-    "🎉 **GIVEAWAY** 🎉",
+    "🎉 **ÇEKİLİŞ** 🎉",
   giveawayEnded:
     (config.everyoneMention ? "@everyone\n\n" : "") +
-    "🎉 **GIVEAWAY ENDED** 🎉",
+    "🎉 **ÇEKİLİŞ BİTTİ** 🎉",
   drawing:  `Ends: **{timestamp}**`,
   inviteToParticipate: `React with 🎉 to participate!`,
-  winMessage: "Congratulations, {winners}! You won **{this.prize}**!",
-  embedFooter: "https://discord.gg/ht3djkDecQ (Giveaways)",
-  noWinner: "Giveaway cancelled, no valid participations.",
-  hostedBy: "Hosted by: {this.hostedBy}",
-  winners: "winner(s)",
-  endedAt: "Ended at"
+  winMessage: "Tebrikler, {winners}! **{this.prize}** Kazandınız!",
+  embedFooter: "https://discord.gg/5BWKeQhBzW (Çekiliş Sunucusu)",
+  noWinner: "Çekiliş iptal edildi, Geçersiz katılımcı.",
+  hostedBy: "Çekilişi Yapan : {this.hostedBy}",
+  winners: "Kazanan(lar)",
+  endedAt: "Sona erdi"
 }
