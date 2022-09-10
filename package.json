@@ -28,7 +28,7 @@
     "node": "16.x"
   },
   "repository": {
-    "url": "https://github.com/AnthonyVTdev/GiveawayBot"
+    "url": "https://github.com/AwakeDC/Cekilis"
   },
   "devDependencies": {
     "node": "^16.9.1"
