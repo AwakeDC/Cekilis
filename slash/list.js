@@ -4,12 +4,12 @@ const Discord = require("discord.js")
 
 module.exports = {
     name: 'list',
-    description: '🎉 List all the active giveaways for this guild.',
+    description: '🎉 Aktif çekilişleri listeler.',
     run: async (client, interaction) => {
         const select = new Discord.MessageSelectMenu().setCustomId("select").setPlaceholder("Choose a type of giveaway to view!").addOptions([
             {
-              label: '🎉 Normal Giveaways',
-              description: 'Check the normal giveaways currently running in your server!',
+              label: '🎉 Normal Çekiliş',
+              description: 'Sunucunuzda şu anda çalışan normal çekilişleri kontrol edin!',
               value: 'normal',
             },
           ])
@@ -18,9 +18,9 @@ module.exports = {
           if (!giveaways.some(e => e.messageId)) {
             return interaction.reply('💥 No Giveaways To Be Displayed')
           }
-  const msg = await interaction.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Choose an option in the select menu to get started!").setColor("#2F3136").setTimestamp()], components: [row] })
+  const msg = await interaction.channel.send({ embeds: [new Discord.MessageEmbed().setDescription("Başlamak için seçim menüsünde bir seçenek belirleyin!").setColor("#2F3136").setTimestamp()], components: [row] })
           let embed = new Discord.MessageEmbed()
-            .setTitle("Currently Active Giveaways")
+            .setTitle("Aktif çekilişler!")
             .setColor("#2F3136")
             .setFooter(client.user.username, client.user.displayAvatarURL())
             .setTimestamp()
