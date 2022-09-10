@@ -2,30 +2,30 @@
 
 module.exports = {
     name: 'edit',
-    description: '🎉 Edit a giveaway',
+    description: '🎉 Çekilişi düzenle',
 
     options: [
         {
             name: 'giveaway',
-            description: 'The giveaway to end (message ID)',
+            description: 'Çekiliş sona erdi (message ID)',
             type: 'STRING',
             required: true
         },
         {
             name: 'duration',
-            description: 'Setting time of mentioned giveaway. Eg. 1h sets the current giveaway to end after an hour!',
+            description: 'Bahsedilen çekilişin ayarlanma zamanı. Örneğin. 1h, mevcut çekilişin bir saat sonra bitmesini sağlar!',
             type: 'STRING',
             required: true
         },
         {
             name: 'winners',
-            description: 'How many winners the giveaway should have',
+            description: 'çekilişin kaç kazananı olmalı',
             type: 'INTEGER',
             required: true
         },
         {
             name: 'prize',
-            description: 'What the prize of the giveaway should be',
+            description: 'çekilişin ödülü ne olmalı',
             type: 'STRING',
             required: true
         }
@@ -36,7 +36,7 @@ module.exports = {
         // If the member doesn't have enough permissions
         if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaways")) {
             return interaction.reply({
-                content: ':x: You need to have the manage messages permissions to start giveaways.',
+                content: ':x: Eşantiyonları başlatmak için mesajları yönetme izinlerine sahip olmanız gerekir.',
                 ephemeral: true
             });
         }
