@@ -4,7 +4,7 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 
 module.exports = {
     name: 'invite',
-    description: '➕ Invite the bot to your server!',
+    description: '➕ Botu sunucunuza eklemek için gerekli olan linki verir!',
     run: async (client, interaction) => {
     const row = new MessageActionRow()
     .addComponents(
@@ -19,7 +19,7 @@ module.exports = {
     )
     let invite = new MessageEmbed()
     .setAuthor(`Invite ${client.user.username} `, client.user.avatarURL())
-    .setTitle("Invite & Support Link!")
+    .setTitle("Davet & Yardım Linki !")
     .setDescription(`Invite ${client.user} to your server today & enjoy seamless giveaways with advvanced features!`)
     .setColor('#2F3136')
     .setTimestamp()
