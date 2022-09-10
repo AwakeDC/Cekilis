@@ -4,12 +4,12 @@ const { MessageEmbed , MessageActionRow, MessageSelectMenu } = require("discord.
 
 module.exports = {
     name: 'help',
-    description: '📜 View all the commands available to the bot!',
+    description: '📜 Botun kullanabileceği tüm komutları görüntüleyin!',
     run: async (client, interaction) => {
         const embed = new MessageEmbed()
         .setTitle(`Commands of ${client.user.username}`)
         .setColor('#2F3136')
-        .setDescription('**Please Select a category to view all its commands**')
+        .setDescription('**Lütfen tüm komutlarını görüntülemek için bir kategori seçin**')
         .addField(`Links:`,`- [Youtube Channel](https://www.youtube.com/channel/UC0oS507eiiBAoU4dYLftcIw)\n- [Discord Server](https://discord.gg/ZAzGRFTv59)\n- [GitHub](https://github.com/AnthonyVTdev/GiveawayBot)`,true)
         .setTimestamp()
         .setFooter(`Requested by ${interaction.user.username} | GiveawayBot™ v3 By AnthonyVTdev`, interaction.user.displayAvatarURL());
@@ -17,15 +17,15 @@ module.exports = {
           const giveaway = new MessageEmbed()
           .setTitle("Categories » Giveaway")
           .setColor('#2F3136')
-          .setDescription("```yaml\nHere are the giveaway commands:```")
+          .setDescription("```yaml\nÇekiliş Komutları:```")
           .addFields(
-            { name: 'Create / Start'  , value: `Start a giveaway in your guild!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'Edit' , value: `Edit an already running giveaway!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'End' , value: `End an already running giveaway!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'List' , value: `List all the giveaways running within this guild!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'Pause' , value: `Pause an already running giveaway!\n > **Type: __\`slash\`__**`, inline: true },
-            { name: 'Reroll' , value: `Reroll an ended giveaway!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'Resume' , value: `Resume a paused giveaway!\n > **Type: __\`slash\`__**`, inline: true },
+            { name: 'Create / Start'  , value: `Çekiliş başlatmaya yarayan komut!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'Edit' , value: `Halihazırda olan bir çekilişi düzenlemeye yarar!!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'End' , value: `Halihazırda olan bir çekilişi sona erdirir!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'List' , value: `Mevcut çekilişleri listeler!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'Pause' , value: `Halihazırda olan bir çekilişi durdurur!\n > **Type: __\`slash\`__**`, inline: true },
+            { name: 'Reroll' , value: `Biten bir çekilişi yeniden yapar!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'Resume' , value: `Durdurulan çekilişi tekrar başlatır!\n > **Type: __\`slash\`__**`, inline: true },
           )
           .setTimestamp()
           .setFooter(`Requested by ${interaction.user.username} | GiveawayBot™ v3 By AnthonyVTdev`, interaction.user.displayAvatarURL());
@@ -34,32 +34,32 @@ module.exports = {
           const general = new MessageEmbed()
           .setTitle("Categories » General")
           .setColor('#2F3136')
-          .setDescription("```yaml\nHere are the general bot commands:```")
+          .setDescription("```yaml\nGenel bot komutları:```")
           .addFields(
-            { name: 'Help'  , value: `Shows all available commands to this bot!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'Invite' , value: `Get the bot's invite link!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'Ping' , value: `Check the bot's websocket latency!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
-            { name: 'Stats' , value: `Sends bot physical statistics.\n > **Type: __\`slash\`__**`, inline: true },
+            { name: 'Help'  , value: `Bu bot için mevcut tüm komutları gösterir!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'Invite' , value: `Botun davet bağlantısını alın!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'Ping' , value: `Botun websocket gecikmesini kontrol edin!\n > **Types: __\`slash\` / \`message\`__**`, inline: true },
+            { name: 'Stats' , value: `Bot fiziksel istatistiklerini gönderir.\n > **Type: __\`slash\`__**`, inline: true },
           )
           .setTimestamp()
-          .setFooter(`Requested by ${interaction.user.username} | GiveawayBot™ v3 By AnthonyVTdev`, interaction.user.displayAvatarURL());
+          .setFooter(`Requested by ${interaction.user.username} | GiveawayBot™ v3 By IKARA`, interaction.user.displayAvatarURL());
         
           const components = (state) => [
             new MessageActionRow().addComponents(
                 new MessageSelectMenu()
                 .setCustomId("help-menu")
-                .setPlaceholder("Please Select a Category")
+                .setPlaceholder("Lütfen kategori seçin")
                 .setDisabled(state)
                 .addOptions([{
-                        label: `Giveaways`,
-                        value: `giveaway`,
-                        description: `View all the giveaway based commands!`,
+                        label: `Çekliş`,
+                        value: `Çekiliş`,
+                        description: `Çekiliş komutlarını görüntüler!`,
                         emoji: `🎉`
                     },
                     {
-                        label: `General`,
-                        value: `general`,
-                        description: `View all the general bot commands!`,
+                        label: `Genel`,
+                        value: `Genel`,
+                        description: `Botun genel komutlarını görüntüler!`,
                         emoji: `⚙`
                     }
                 ])
