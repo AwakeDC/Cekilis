@@ -5,54 +5,54 @@ const messages = require("../utils/message");
 const ms = require("ms")
 module.exports = {
   name: 'start',
-  description: '🎉 Start a giveaway',
+  description: '🎉 Çekiliş başlatır',
 
   options: [
     {
       name: 'duration',
-      description: 'How long the giveaway should last for. Example values: 1m, 1h, 1d',
+      description: 'Çekiliş ne kadar sürecek? Örnek: 1m, 1h, 1d','\n`1m: 1 Dakika\n1h: 1 Saat\n1d: 1 Gün`',
       type: 'STRING',
       required: true
     },
     {
       name: 'winners',
-      description: 'How many winners the giveaway should have',
+      description: 'Çekilişin kaç kazananı olmalı?',
       type: 'INTEGER',
       required: true
     },
     {
       name: 'prize',
-      description: 'What the prize of the giveaway should be',
+      description: 'Çekilişin ödülü ne olmalı?',
       type: 'STRING',
       required: true
     },
     {
       name: 'channel',
-      description: 'The channel to start the giveaway in',
+      description: 'Çekilişin başlatılacağı kanal hangisi?',
       type: 'CHANNEL',
       required: true
     },
     {
       name: 'bonusrole',
-      description: 'Role which would recieve bonus entries',
+      description: 'Bonus rol',
       type: 'ROLE',
       required: false
     },
     {
       name: 'bonusamount',
-      description: 'The amount of bonus entries the role will recieve',
+      description: "Rolün alacağı bonus'un miktarı",
       type: 'INTEGER',
       required: false
     },
     {
       name: 'invite',
-      description: 'Invite of the server you want to add as giveaway joining requirement',
+      description: 'Hediye katılım şartı olarak eklemek istediğiniz sunucunun daveti',
       type: 'STRING',
       required: false
     },
     {
       name: 'role',
-      description: 'Role you want to add as giveaway joining requirement',
+      description: 'Hediye katılım şartı olarak eklemek istediğiniz rol',
       type: 'ROLE',
       required: false
     },
@@ -63,7 +63,7 @@ module.exports = {
     // If the member doesn't have enough permissions
     if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaways")) {
       return interaction.reply({
-        content: ':x: You need to have the manage messages permissions to start giveaways.',
+        content: ':x: Çekiliş başlatmak için gerekli izinlere sahip değilsin.',
         ephemeral: true
       });
     }
@@ -75,19 +75,19 @@ module.exports = {
 
     if (!giveawayChannel.isText()) {
       return interaction.reply({
-        content: ':x: Please select a text channel!',
+        content: ':x: Lütfen metin kanalı seçin!',
         ephemeral: true
       });
     }
    if(isNaN(ms(giveawayDuration))) {
     return interaction.reply({
-      content: ':x: Please select a valid duration!',
+      content: ':x: Lütfen geçerli bir süre seçin!',
       ephemeral: true
     });
   }
     if (giveawayWinnerCount < 1) {
       return interaction.reply({
-        content: ':x: Please select a valid winner count! greater or equal to one.',
+        content: ':x: Lütfen geçerli bir kazanan sayısı seçin! bir veya daha çok.',
       })
     }
 
@@ -99,7 +99,7 @@ module.exports = {
     if (bonusRole) {
       if (!bonusEntries) {
         return interaction.reply({
-          content: `:x: You must specify how many bonus entries would ${bonusRole} recieve!`,
+          content: `:x: Kaç tane bonus girişinin olacağını belirtmelisiniz ${bonusRole} almak!`,
           ephemeral: true
         });
       }
@@ -122,10 +122,10 @@ module.exports = {
               name: client.user.username,
               icon_url: client.user.avatarURL
             },
-            title: "Server Check!",
-            url: "https://discord.gg/ht3djkDecQ",
+            title: "Sunucu Kontrolü!",
+            url: "https://discord.gg/5BWKeQhBzW",
             description:
-              "Woah woah woah! I see a new server! are you sure I am in that? You need to invite me there to set that as a requirement! 😳",
+              "Vay vay vay vay! Yeni bir sunucu görüyorum! içinde olduğumdan emin misin? Bunu bir gereklilik olarak belirlemek için beni oraya davet etmen gerekiyor.! 😳",
             timestamp: new Date(),
             footer: {
               icon_url: client.user.avatarURL,
@@ -137,13 +137,13 @@ module.exports = {
     }
 
     if (rolereq && !invite) {
-      messages.inviteToParticipate = `**React with 🎉 to participate!**\n>>> - Only members having ${rolereq} are allowed to participate in this giveaway!`
+      messages.inviteToParticipate = `**Tepki ver 🎉 to participate!**\n>>> - Sadece bu role sahip olan üyeler çekilişe katılabilir ${rolereq}!`
     }
     if (rolereq && invite) {
-      messages.inviteToParticipate = `**React with 🎉 to participate!**\n>>> - Only members having ${rolereq} are allowed to participate in this giveaway!\n- Members are required to join [this server](${invite}) to participate in this giveaway!`
+      messages.inviteToParticipate = `**Tepki ver 🎉 to participate!**\n>>> - Bu çekilişe yalnızca bu role sahip olan kişiler katılabilir ${rolereq}!\n- Üyelerin katılması zorunludur [Bu sunucuya](${invite}) bu çekilişe katılmak için!`
     }
     if (!rolereq && invite) {
-      messages.inviteToParticipate = `**React with 🎉 to participate!**\n>>> - Members are required to join [this server](${invite}) to participate in this giveaway!`
+      messages.inviteToParticipate = `**Tepki ver 🎉 to participate!**\n>>> - Üyelerin katılması zorunludur [Bu sunucuya](${invite}) bu çekilişe katılmak için!`
     }
 
 
@@ -174,7 +174,7 @@ module.exports = {
     });
     interaction.editReply({
       content:
-        `Giveaway started in ${giveawayChannel}!`,
+        `Çekiliş başladı ${giveawayChannel}!`,
       ephemeral: true
     })
 
@@ -182,7 +182,7 @@ module.exports = {
       let giveaway = new Discord.MessageEmbed()
         .setAuthor(`Bonus Entries Alert!`)
         .setDescription(
-          `**${bonusRole}** Has **${bonusEntries}** Extra Entries in this giveaway!`
+          `**${bonusRole}** **${bonusEntries}** Bu çekilişte Ekstra Girişler!`
         )
         .setColor("#2F3136")
         .setTimestamp();
