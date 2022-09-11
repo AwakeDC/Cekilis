@@ -2,12 +2,12 @@
 
 module.exports = {
     name: "reroll",
-    description: '🎉 Reroll a giveaway',
+    description: '🎉 Çekilişi yeniden yap',
 
     options: [
         {
             name: 'giveaway',
-            description: 'The giveaway to reroll (message ID or prize)',
+            description: 'Çekilişi yeniden yapar (Mesaj ID veya Ödül)',
             type: 'STRING',
             required: true
         }
@@ -18,7 +18,7 @@ module.exports = {
         // If the member doesn't have enough permissions
         if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaways")) {
             return interaction.reply({
-                content: ':x: You need to have the manage messages permission to reroll giveaways.',
+                content: ':x: Gerekli izinlere sahip değilsin.',
                 ephemeral: true
             });
         }
@@ -35,14 +35,14 @@ module.exports = {
         // If no giveaway was found
         if (!giveaway) {
             return interaction.reply({
-                content: 'Unable to find a giveaway for `' + query + '`.',
+                content: 'Çekiliş bulunamadı `' + query + '`.',
                 ephemeral: true
             });
         }
 
         if (!giveaway.ended) {
             return interaction.reply({
-                content: `[This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has not been ended yet`,
+                content: `[Çekiliş](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) Henüz bitmedi`,
                 ephemeral: true
             });
         }
@@ -51,7 +51,7 @@ module.exports = {
         client.giveawaysManager.reroll(giveaway.messageId)
             .then(() => {
                 // Success message
-                interaction.reply(`Rerolled **[this giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})!**`);
+                interaction.reply(`Yeniden düzenlendi **[Çekiliş](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})!**`);
             })
             .catch((e) => {
                 interaction.reply({
