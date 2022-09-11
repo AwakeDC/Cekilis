@@ -4,12 +4,12 @@ module.exports = {
     return member.send({
       embeds: [new Discord.MessageEmbed()
         .setTimestamp()
-        .setTitle('❓ Hold Up Did You Just Remove a Reaction From A Giveaway?')
+        .setTitle('❓ Hey bekle! Bir çekilişten az önce tepkiyi mi kaldırdınız?')
         .setColor("#2F3136")
         .setDescription(
-          `Your entery to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) was recorded but you un-reacted, since you don't need **${giveaway.prize}** I would have to choose someone else 😭`
+          `Girişin [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) kaydedildi ama tepki vermedin!, ihtiyacın olmadığından **${giveaway.prize}** başka birini seçmem gerekirdi 😭`
         )
-        .setFooter("Think It was a mistake? Go react again!")
+        .setFooter("Bir hata olduğunu mu düşünüyorsun? Git ve tekrar tepki ver!")
       ]
     }).catch(e => {})
 
