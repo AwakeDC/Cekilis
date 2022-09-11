@@ -7,7 +7,7 @@ module.exports = (client, interaction) => {
 
 // If command does not exist return an error message
     if (!command) return interaction.reply({
-      content: "Something Went Wrong | Perhaps command not registered?",
+      content: "Bir şeyler yanlış gitti | Belli ki komut kayıtlı değil?",
       ephemeral: true
     });
 
