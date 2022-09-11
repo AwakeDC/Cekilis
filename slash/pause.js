@@ -2,12 +2,12 @@
 
 module.exports = {
     name: "pause",
-    description: '⏸ Pause a giveaway',
+    description: '⏸ Çekilişi durdurur',
 
     options: [
         {
             name: 'giveaway',
-            description: 'The giveaway to pause (message ID or giveaway prize)',
+            description: 'Çekilişi duratlatmak için kullanılır (Mesaj İD veya Çekiliş Ödülü)',
             type: 'STRING',
             required: true
         }
@@ -18,7 +18,7 @@ module.exports = {
         // If the member doesn't have enough permissions
         if (!interaction.member.permissions.has('MANAGE_MESSAGES') && !interaction.member.roles.cache.some((r) => r.name === "Giveaways")) {
             return interaction.reply({
-                content: ':x: You need to have the manage messages permissions to pause giveaways.',
+                content: ':x: Çekilişi durdurmak için gerekli iznin yok!.',
                 ephemeral: true
             });
         }
@@ -35,14 +35,14 @@ module.exports = {
         // If no giveaway was found
         if (!giveaway) {
             return interaction.reply({
-                content: 'Unable to find a giveaway for `' + query + '`.',
+                content: 'Çekiliş bulunamadı `' + query + '`.',
                 ephemeral: true
             });
         }
 
         if (giveaway.pauseOptions.isPaused) {
             return interaction.reply({
-                content: `**[This giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})**  is already paused.`,
+                content: `**[Çekiliş](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})**  zaten durdurulmuş.`,
                 ephemeral: true
             });
         }
@@ -52,7 +52,7 @@ module.exports = {
             // Success message
             .then(() => {
                 // Success message
-                interaction.reply(`**[This giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})** has now been paused!`);
+                interaction.reply(`**[Çekiliş](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})** şimdi durduruldu!`);
             })
             .catch((e) => {
                 interaction.reply({
