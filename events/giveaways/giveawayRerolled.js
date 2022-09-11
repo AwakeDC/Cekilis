@@ -4,9 +4,9 @@ module.exports = {
     winners.forEach((member) => {
       member.send({
         embeds: [new Discord.MessageEmbed()
-          .setTitle(`🎁 Let's goo! We Have A New Winner`)
+          .setTitle(`🎁 Hadi! Yeni Bir Kazananımız Var`)
           .setColor("#2F3136")
-          .setDescription(`Hello there ${member.user}\n I heard that the host rerolled and you have won **[[This Giveaway]](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})**\n Good Job On Winning **${giveaway.prize}!**\nDirect Message the host to claim your prize!!`)
+          .setDescription(`Hey merhaba ${member.user}\n Ev sahibinin yeniden kayıt yaptığını ve kazandığınızı duydum **[[Çekiliş]](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId})**\n **${giveaway.prize}!**\nÖdülünü almak için sunucu sahibiyle iletişime geç!!`)
           .setTimestamp()
           .setFooter(member.user.username, member.user.displayAvatarURL())
         ]
