@@ -11,7 +11,7 @@ module.exports = async (client) => {
   // Register slash commands - ( If you are one of those people who read the codes I highly suggest ignoring this because I am very bad at what I am doing, thanks LMAO )
   console.log(`Aktif`)
   let invite = `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=347200&scope=applications.commands%20bot`;
-  const activities = [`Type !ghelp or /help`, `All Giveaways Running Smoothly`, `https://discord.gg/ht3djkDecQ`];
+  const activities = [`!!help or /help`, `Tüm çekilişler sorunsuz bir şekilde çalışıyor!`, `https://discord.gg/5BWKeQhBzW`];
   setInterval(() => {
     let activity = activities[Math.floor(Math.random() * activities.length)];
     client.user.setActivity(activity, { type: "PLAYING" });
