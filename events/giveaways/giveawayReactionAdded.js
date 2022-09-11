@@ -4,18 +4,18 @@ module.exports = {
     let approved =  new Discord.MessageEmbed()
     .setTimestamp()
     .setColor("#2F3136")
-    .setTitle("Entry Approved! | You have a chance to win!!")
+    .setTitle("Giriş Onaylandı! | kazanma şansın var!!")
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been approved!`
+      `Girişin [Çekiliş](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) onaylandı!`
     )
-    .setFooter("GiveawayBot Coded By AnthonyVTdev")
+    .setFooter("Çekiliş botu! | Bot Sahibi : KARA")
     .setTimestamp()
    let denied =  new Discord.MessageEmbed()
     .setTimestamp()
     .setColor("#2F3136")
-    .setTitle(":x: Entry Denied | Databse Entry Not Found & Returned!")
+    .setTitle(":x: Giriş Reddedildi | Veritabanı Girişi Bulunamadı ve İade Edildi!")
     .setDescription(
-      `Your entry to [This Giveaway](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) has been denied, please review the requirements to the giveaway properly.`
+      `Girişiniz [Çekiliş](https://discord.com/channels/${giveaway.guildId}/${giveaway.channelId}/${giveaway.messageId}) reddedili, lütfen hediye gereksinimlerini düzgün bir şekilde gözden geçirin.`
     )
     .setFooter("https://discord.gg/ht3djkDecQ")
 
